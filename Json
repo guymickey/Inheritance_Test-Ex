@@ -1,0 +1,21 @@
+{
+  "name": "Testbga.Models.Page",
+  "data": "{\"name\": \"Testbga.Models.Page\"}",
+  "containings": [
+    {
+      "component": {
+        "name": "Testbga.Models.TextBox",
+        "data": "{\"value\": \"Hello World!\"}"
+      }
+    },
+    {
+      "component": {
+        "name": "Testbga.Models.TextBox",
+        "data": "{\"value\": \"AAAAA!\"}"
+      }
+    }
+  ]
+}
+
+//name ต้องเป็น type  และ name จะไปอยุ่ใน data ทั้งหมด
+// ถ้าไม่เอา name ไว้ใน data name ใน component จะเป็น null
