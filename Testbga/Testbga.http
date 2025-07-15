@@ -1,0 +1,6 @@
+@Testbga_HostAddress = http://localhost:5001
+
+GET {{Testbga_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
