@@ -18,4 +18,4 @@
 }
 
 //name ต้องเป็น type  และ name จะไปอยุ่ใน data ทั้งหมด
-// ถ้าไม่เอา name ไว้ใน data name ใน component จะเป็น null
+// ถ้าไม่เอา name ไว้ใน data name ใน component จะเป็น null  แก้ไข มันไม่ต้องใส่ก็ได้ แต่โค้ดเขียนผิดนิดหน่อย
