@@ -12,6 +12,9 @@ public partial class Page
     [Key]
     public int Id { get; set; }
 
+    [InverseProperty("Page")]
+    public virtual ICollection<DependentPage> DependentPages { get; set; } = new List<DependentPage>();
+
     [ForeignKey("Id")]
     [InverseProperty("Page")]
     public virtual Container IdNavigation { get; set; } = null!;

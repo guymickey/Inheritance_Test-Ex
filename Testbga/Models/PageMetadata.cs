@@ -10,12 +10,14 @@ namespace Testbga.Models
     [MetadataType(typeof(PageMetadata))]
     public partial class Page
     {
-
         public Component CreatePage (CustomContext db)
         {
-            var containings = this.Containings.ToList();
-            this.Containings.Clear(); // Clear existing containings to avoid duplicates
+            List<Containing> containings = this.Containings.ToList();
+            this.Containings.Clear();
+
             Component Page = this.Create(db);
+            this.Id = Page.Id;
+                
 
             foreach (Containing containing in containings)
             {
@@ -25,8 +27,17 @@ namespace Testbga.Models
                 dd.ContainerId = Page.Id;
                 dd.ComponentId = child.Id;
                 dd.Create(db);
-            }
 
+                if (child.Name == "Testbga.Models.Section")
+                {
+                    Section section = (Section)child;
+                    section.Containings = containing.Component.Containings.ToList() ?? new List<Containing>();
+                    section.CreateSectionContining(db, child);
+                }
+            }
+     
+
+             
             return this;
         }
     }

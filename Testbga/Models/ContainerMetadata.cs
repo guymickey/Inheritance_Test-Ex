@@ -18,8 +18,7 @@ namespace Testbga.Models
 
     public partial class Section : Container
     {
-        [Column("ID")]
-        public int SectionID { get; set; }
+     
     }
 
     //[MetadataType(typeof(ContainerMetadata))]

@@ -17,7 +17,7 @@ namespace Testbga.Models
         public string? Data { get; set; } = string.Empty;
         public Component Create(CustomContext db)
         {
-            var type = Type.GetType(this.Name);
+            Type type = Type.GetType(this.Name);
 
             dynamic json = JsonConvert.DeserializeObject(this.Data,type);
             Object x = Activator.CreateInstance(type);
@@ -27,9 +27,15 @@ namespace Testbga.Models
                 case "Testbga.Models.TextBox":
                     (x as TextBox).Value = json.Value;
                     break;
+                case "Testbga.Models.Banner":
+                    (x as Banner).Value = json.Value;
+                    break;
+                case "Testbga.Models.Section":
+                        
+                    break;
             }
 
-            Component buffer = (Component)json;
+            Component buffer = (Component)x;
             
             db.Add(buffer);
             db.SaveChanges();

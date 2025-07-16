@@ -6,15 +6,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Testbga.Models;
 
-[Table("TextBox")]
-public partial class TextBox
+[Table("Event")]
+public partial class Event
 {
     [Key]
     public int Id { get; set; }
 
-    public string? Value { get; set; }
+    public string? Name { get; set; }
 
-    [ForeignKey("Id")]
-    [InverseProperty("TextBox")]
-    public virtual Component IdNavigation { get; set; } = null!;
+    public bool? IsFav { get; set; }
+
+    [InverseProperty("Event")]
+    public virtual ICollection<DependentPage> DependentPages { get; set; } = new List<DependentPage>();
 }

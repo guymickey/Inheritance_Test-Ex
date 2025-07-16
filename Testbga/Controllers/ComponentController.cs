@@ -29,24 +29,30 @@ namespace Testbga.Controllers
         }
 
         [HttpPost("create")]
-        public ActionResult Create(Testbga.Models.Component component)
+        public ActionResult Create([FromBody] string component)
         {
-            //var c = json;
-            //var a = json.ToObject<Page>();
-            Page page = new Page();
-            page.Name = component.Name;
-            page.Data = component.Data;
-            page.Containings = component.Containings;
-            foreach (var item in component.Containings)
-            {
-                Console.WriteLine(item);
-                var n = item.Component;
-                Console.WriteLine(n);
-            }
-            page.CreatePage(_context);
-            return Ok(page);
 
-            //return Ok(c);
+            //Page page = new Page();
+            //page.Name = component.Name;
+            //page.Data = component.Data;
+            //page.Containings = component.Containings;
+
+            ////foreach (var item in component.Containings)
+            ////{
+            ////    Console.WriteLine(item);
+            ////    var n = item.Component;
+            ////    Console.WriteLine(n);
+            ////}
+            //page.CreatePage(_context);
+
+            var page = JsonConvert.DeserializeObject<Event>(component);
+
+            // ตอนนี้ page คือ object แล้ว ใช้งานได้เลย
+            page.Create(_context);
+            _context.SaveChanges();
+            return Ok(component);
+
+         
         }
 
 

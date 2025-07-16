@@ -23,6 +23,10 @@ public partial class TestbgContext : DbContext
 
     public virtual DbSet<Containing> Containings { get; set; }
 
+    public virtual DbSet<DependentPage> DependentPages { get; set; }
+
+    public virtual DbSet<Event> Events { get; set; }
+
     public virtual DbSet<Page> Pages { get; set; }
 
     public virtual DbSet<Section> Sections { get; set; }
@@ -58,6 +62,13 @@ public partial class TestbgContext : DbContext
             entity.HasOne(d => d.Component).WithMany(p => p.Containings).HasConstraintName("FK_Containing_Component");
 
             entity.HasOne(d => d.Container).WithMany(p => p.Containings).HasConstraintName("FK_Containing_Container");
+        });
+
+        modelBuilder.Entity<DependentPage>(entity =>
+        {
+            entity.HasOne(d => d.Event).WithMany(p => p.DependentPages).HasConstraintName("FK_DependentPage_Event");
+
+            entity.HasOne(d => d.Page).WithMany(p => p.DependentPages).HasConstraintName("FK_DependentPage_Page");
         });
 
         modelBuilder.Entity<Page>(entity =>
