@@ -1,0 +1,3 @@
+"{\"name\":\"ประกวด\",\"isfav\":false,\"dependentPages\":[{\"component\":{\"name\":\"Testbga.Models.Page\",\"data\":\"{}\",\"containings\":[{\"component\":{\"name\":\"Testbga.Models.Section\",\"data\":\"{}\",\"containings\":[{\"component\":{\"name\":\"Testbga.Models.Section\",\"data\":\"{}\",\"containings\":[{\"component\":{\"name\":\"Testbga.Models.TextBox\",\"data\":\"{\\\"value\\\": \\\"รักมาก\\\"}\"}}]}}]}},{\"component\":{\"name\":\"Testbga.Models.Section\",\"data\":\"{}\"}}]}}]}"
+
+//String ที่ใช้ลองเทรด
